@@ -104,6 +104,7 @@ let nextTwo = document.getElementById('second-next-line');
 let nextThree = document.getElementById('third-next-line');
 let startOver = document.getElementById('fourth-next-line');
 
+
 // This variable stores the '-END' lyric element
 let lastLyric = document.getElementById('column-optional');
 
@@ -113,12 +114,40 @@ nextThree.hidden = true;
 startOver.hidden= true;
 
 // Write anonymous event handler property and function for the first progress button
+nextOne.addEventListener('click', () => {
+    nextOne.hidden = true;
+    nextTwo.hidden = false;
+    document.getElementById('letter-note-five').innerHTML = 'D';
+    document.getElementById('letter-note-six').innerHTML = 'C';
+});
 
 
 // Write anonymous event handler property and function for the second progress button
+nextTwo.addEventListener('click', () => {
+    nextThree.hidden = false;
+    nextTwo.hidden = true;
+    document.getElementById('word-five').innerHTML = 'DEAR';
+    document.getElementById('word-six').innerHTML = 'FRI';
+    lastLyric.style.display = 'block';
+    document.getElementById('letter-note-three').innerHTML = 'G';
+    document.getElementById('letter-note-four').innerHTML = 'E';
+    document.getElementById('letter-note-five').innerHTML = 'C';
+    document.getElementById('letter-note-six').innerHTML = 'B';
+});
 
 
 // Write anonymous event handler property and function for the third progress button
+nextThree.addEventListener('click', () => {
+    nextThree.hidden = true;
+    startOver.hidden = false;
+    document.getElementById('letter-note-one').innerHTML = 'F';
+    document.getElementById('letter-note-two').innerHTML = 'F';
+    document.getElementById('letter-note-three').innerHTML = 'E';
+    document.getElementById('letter-note-four').innerHTML = 'C';
+    document.getElementById('letter-note-five').innerHTML = 'D';
+    document.getElementById('letter-note-six').innerHTML = 'C';
+    lastLyric.style.display = 'none';
+});
 
 
 // This is the event handler property and function for the startOver button
