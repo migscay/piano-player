@@ -1,3 +1,22 @@
+//adding musicality
+//let turnOnSound = document.getElementById('turn-on-sound');
+// let context = {};
+// let oscillator = {};
+// turnOnSound.addEventListener('click', () => {
+//     context = new AudioContext();
+//         
+//     oscillator = context.createOscillator();
+//             
+//         oscillator.frequency.value = 440;
+//         oscillator.type = 'sine';
+//         oscillator.connect(context.destination);
+//         
+//         oscillator.start(context.currentTime);
+//         setTimeout(() => oscillator.stop(context.currentTime), 500);
+//         console.log('sound turned on');
+//         //return(oscillator);
+// });
+
 // The keys and notes variables store the piano keys
 const keys = ['c-key', 'd-key', 'e-key', 'f-key', 'g-key', 'a-key', 'b-key', 'high-c-key', 'c-sharp-key', 'd-sharp-key', 'f-sharp-key', 'g-sharp-key', 'a-sharp-key'];
 //const notes = [];
@@ -24,6 +43,49 @@ const a_sharp_key = document.getElementById('a-sharp-key');
 //Write named functions that change the color of the keys below
 function keyPlay() {
     event.target.style.backgroundColor = 'blue';
+    console.log(event.target.id);
+    switch(event.target.id) {
+        case 'a-key':
+            playNote(440);
+            break;
+        case 'b-key':
+            playNote(493.88);
+            break;
+        case 'c-key':
+            playNote(261.63);
+            break;
+        case 'd-key':
+            playNote(293.66);
+            break;
+        case 'e-key':
+            playNote(329.63);
+            break;
+        case 'f-key':
+            playNote(349.23);
+            break;
+        case 'g-key':
+            playNote(392);
+            break;                            
+        case 'high-c-key':
+            playNote(523.25);
+            break;
+        case 'c-sharp-key':
+            playNote(277.18);
+            break;
+        case 'd-sharp-key':
+            playNote(311.13);
+            break;
+        case 'f-sharp-key':
+            playNote(369.99);
+            break;
+        case 'g-sharp-key':
+            playNote(415.13);
+            break;
+        case 'a-sharp-key':
+            playNote(466.16);
+            break;                                                
+    }
+ 
     //note.style.backgroundColor = 'blue';
 } 
 
@@ -31,6 +93,25 @@ function keyReturn () {
     event.target.style.backgroundColor = '';
     //note.style.backgroundColor = '';
 }
+
+function playNote(frequency) {
+    const context = new AudioContext();
+        
+    const oscillator = context.createOscillator();
+            
+        oscillator.frequency.value = frequency;
+        oscillator.type = 'sine';
+        oscillator.connect(context.destination);
+        
+        oscillator.start(context.currentTime);
+        setTimeout(() => oscillator.stop(context.currentTime), 500);
+        console.log('sound turned on');
+
+        /* ... */
+        oscillator.frequency.value = frequency
+        /* ... */
+}
+
 
 // Write a named function with event handler properties
 // function handleKey() {
